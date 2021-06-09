@@ -1,0 +1,61 @@
+.sidenav {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: rgb(196, 206, 228);
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.title{
+  align-content: center;
+}
+
+.items-container {display: flex;
+flex-direction: row;
+flex-wrap: wrap;}
+
+.items-container > * {
+  width:calc(20% - 1em);
+  margin:1em .5em;
+}
+
+.items-container .card-title {
+  font-size: 1.2em;
+  float: left;
+  width: calc(100% - 110px);
+}
+
+.items-container .card.alert-light {
+  padding: .5em;
+  box-shadow: 0 0 0.2em #999;
+  display: block;
+}
+
+.items-container .card-subtitle {
+  float: left;
+  width: calc(100% - 110px);
+  margin-bottom:10px;
+}
+
+.items-container .card.alert-light img {
+  width: 100px;
+  height: 100px;
+  float: left;
+  margin-right:10px
+}
+.cart-container .card.alert-light img {
+  width: 50px;
+  height: 50px;
+  float: left;
+  margin-left:30%
+}
+.cart-container {
+  box-shadow: 0 0 0.2em #999;
+  text-align: center;
+}
+
+
