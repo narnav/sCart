@@ -1,0 +1,330 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+h1 {
+  font-size: 48px;
+  color: white;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+p {
+  font-size: 18px;
+}
+
+#header {
+  z-index: 10;
+}
+
+body {
+  font-size: 2vmax;
+  background-color: black;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.nav-box {
+  position: relative;
+  width: 100%;
+  height: 8vh;
+  background-color: red;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.nav-item {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: inherit;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.logo {
+  font-size: 4vmin;
+  background: #111;
+}
+
+.logo span {
+  letter-spacing: 2px;
+  color: red;
+}
+
+.nav-links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: inherit;
+  height: inherit;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.burger {
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 30px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  cursor: pointer;
+}
+
+.burger .line {
+  height: 5px;
+  width: 25px;
+  background-color: #e2e2e2;
+  pointer-events: none;
+}
+
+.links {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 2.5vmin;
+  background-color: red;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.links:hover {
+  background-color: #111;
+  color: #cc0707;
+}
+
+.ccontainer {
+  width: 90vw;
+  height: 92vh;
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.form {
+  width: 100%;
+  height: 92vh;
+  background-color: #c2c2c2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.avatar {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: transparent;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.inp {
+  padding: 25px;
+  outline: none;
+  border: none;
+  border-radius: 2rem;
+  width: 35vw;
+  background-color: #c2c2c2;
+  color: #111;
+  font-size: 1rem;
+}
+
+.log {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.log .log-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+  background-color: red;
+  width: 100%;
+}
+
+.log .box-btn {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.or {
+  position: relative;
+  width: 10%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 3;
+}
+
+.or h1 {
+  z-index: 4;
+  color: #c2c2c2;
+}
+
+.or::after {
+  content: "";
+  background-color: red;
+  border: 10px solid #111;
+  height: 50%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  right: 0%;
+}
+
+.or::before {
+  content: "";
+  border: 10px solid red;
+  background-color: #111;
+  height: 50%;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+.sgin {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  background-color: #111;
+  width: 100%;
+  height: 100%;
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+}
+
+.sgin .fname {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 100%;
+}
+
+.sgin .fname input {
+  width: 40%;
+}
+
+.sgin h1 {
+  font-size: 2rem;
+}
+
+.btn {
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  -webkit-transition: 1s;
+  transition: 1s;
+  outline: none;
+  background-color: #111;
+  color: white;
+  padding: 10px;
+}
+
+.sginup-btn {
+  background-color: red;
+  color: white;
+  margin-bottom: 20px;
+}
+/*# sourceMappingURL=mainstyle.css.map */
