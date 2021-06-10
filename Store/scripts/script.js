@@ -37,16 +37,21 @@ let shopData = [
 
 ]
 
+var currency = '$'
+
 let myCart = {
   cost: 0,
   cart: [],
   index: 0
 }
 
+document.addEventListener("DOMContentLoaded", function(event) { 
+  TotalCost.innerHTML = myCart.cost + currency
+});
+
 function checkOut() {
   if (myCart.cost > 0) {
     let removeItem = 0;
-
     myCart.cart = jQuery.grep(myCart.cart, function (value) {
       return value != removeItem;
     });
@@ -55,8 +60,8 @@ for (let index = 0; index < myCart.cart.length; index++) {
   itemsList += shopData[myCart.cart[index]-1].name
   if(index+1<myCart.cart.length){itemsList += '\n'}
 }
-    alert(`${itemsList}
-PRICE: ${myCart.cost}$`)
+    alert(`PRICE: ${myCart.cost}${currency}
+${itemsList}`)
     location.reload();
   } else { alert(`Cart is empty`) }
 }
@@ -65,7 +70,7 @@ function addToCart(prodID, prodPrice) {
   goodToast(`${shopData[prodID-1].name} added to cart`)
   myCart.cart.push(prodID)
   myCart.cost += prodPrice
-  TotalCost.innerHTML = myCart.cost + `$`
+  TotalCost.innerHTML = myCart.cost + currency
   shoppingCart.innerHTML += `
   <li id="card${myCart.index}" class="cart-container list-group-item">
       <div class="card  alert-light">
@@ -74,7 +79,7 @@ function addToCart(prodID, prodPrice) {
           ${shopData[prodID - 1].name}
         </div>
         <div class="card-subtitle">
-          Cost: ${prodPrice}
+          Cost: ${prodPrice}${currency}
         </div>
         <button onclick="removeCard(${myCart.index},${prodPrice},${prodID})" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> REMOVE</button>
       </div>
@@ -93,8 +98,9 @@ function removeCard(_cardID, minusPrice, _prodID) {
   document.getElementById(`card${_cardID}`).remove();
 
   myCart.cost -= minusPrice
-  TotalCost.innerHTML = myCart.cost + `$`
+  TotalCost.innerHTML = myCart.cost + currency
   cartItems.innerText--
+  if(cartItems.innerText == "0"){cartItems.innerText = ""}
   badToast(`${shopData[_prodID-1].name} removed from cart`)
   console.log(myCart.cart)
 
@@ -114,7 +120,7 @@ function displayItems(_num) {
             ${shopData[index].name}
           </div>
           <div class="card-subtitle">
-            Price: ${shopData[index].price}
+            Price: ${shopData[index].price}${currency}
           </div>
           <br>
           <button onclick="addToCart(${shopData[index].id},${shopData[index].price})" class="btn btn-success btn-sm">Add to cart</button>
