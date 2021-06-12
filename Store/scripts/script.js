@@ -34,10 +34,23 @@ let shopData = [
   { id: 29, cat: 3, price: 5, name: "Popsicle" },
   { id: 30, cat: 3, price: 30, name: "Cheddar" },
 
+  { id: 31, cat: 4, price: 20, name: "Cider" },
+  { id: 32, cat: 4, price: 10, name: "Grape Juice" },
+  { id: 33, cat: 4, price: 15, name: "Ice Cream Pop" },
+  { id: 34, cat: 4, price: 10, name: "Orange Juice" },
+  { id: 35, cat: 4, price: 10, name: "Mineral Water" },
+  { id: 36, cat: 4, price: 20, name: "Orange Nectar" },
+  { id: 37, cat: 4, price: 10, name: "XL" },
+  { id: 38, cat: 4, price: 10, name: "Sprite" },
+  { id: 39, cat: 4, price: 100, name: "Whiskey" },
+  { id: 40, cat: 4, price: 100, name: "Sake" },
+
 
 ]
 
-var currency = '$'
+
+const currency = ` <img class="currency" style="width: 20px; height: 20px; float: none;
+margin-left:none;" src=./imgs/surplus.png height="10"/>`
 
 let myCart = {
   cost: 0,
@@ -47,6 +60,7 @@ let myCart = {
 
 document.addEventListener("DOMContentLoaded", function(event) { 
   TotalCost.innerHTML = myCart.cost + currency
+  displayItems(4)
 });
 
 function checkOut() {
@@ -59,8 +73,13 @@ function checkOut() {
 for (let index = 0; index < myCart.cart.length; index++) {
   itemsList += shopData[myCart.cart[index]-1].name
   if(index+1<myCart.cart.length){itemsList += '\n'}
+  // 
+  if(myCart.cart[0] == 16 && myCart.cart[1] == 11 && myCart.cart[2] == 21 && myCart.cart.length == 3){
+    itemsList = 'daSecret'
+  } 
+  
 }
-    alert(`PRICE: ${myCart.cost}${currency}
+    alert(`PRICE: ${myCart.cost}$
 ${itemsList}`)
     location.reload();
   } else { alert(`Cart is empty`) }
@@ -93,7 +112,6 @@ function addToCart(prodID, prodPrice) {
 }
 
 function removeCard(_cardID, minusPrice, _prodID) {
-  console.log(_cardID)
   myCart.cart.splice(_cardID, 1, 0)
   document.getElementById(`card${_cardID}`).remove();
 
@@ -148,4 +166,3 @@ function badToast(_message) {
     backgroundColor: "linear-gradient(to right, #f35e00, #ff1e00)",
   }).showToast();
 }
-// <img class="card-img-top" src="https://picsum.photos/50" alt="Card image cap">
