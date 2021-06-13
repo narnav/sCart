@@ -1,27 +1,27 @@
 
 
 let shopData = [
-  { id: 1, cat: 1, price: 40, name: "Meat" },
+  { id: 1, cat: 1, price: 60, name: "Meat" },
   { id: 2, cat: 1, price: 55, name: "Turkey" },
   { id: 3, cat: 1, price: 100, name: "Steak" },
-  { id: 4, cat: 1, price: 11, name: "Chicken" },
-  { id: 5, cat: 1, price: 63, name: "Sausage" },
+  { id: 4, cat: 1, price: 45, name: "Chicken" },
+  { id: 5, cat: 1, price: 35, name: "Sausage" },
   { id: 6, cat: 1, price: 30, name: "Shrimp" },
   { id: 7, cat: 1, price: 1, name: "Tuna" },
   { id: 8, cat: 1, price: 5, name: "Fish" },
-  { id: 9, cat: 1, price: 67, name: "Pork" },
-  { id: 10, cat: 1, price: 53, name: "Bacon" },
+  { id: 9, cat: 1, price: 57, name: "Pork" },
+  { id: 10, cat: 1, price: 33, name: "Bacon" },
 
-  { id: 11, cat: 2, price: 5, name: "Apple" },
-  { id: 12, cat: 2, price: 6, name: "Lemon" },
-  { id: 13, cat: 2, price: 5, name: "Orange" },
-  { id: 14, cat: 2, price: 7, name: "Peach" },
-  { id: 15, cat: 2, price: 4, name: "Corn" },
-  { id: 16, cat: 2, price: 16, name: "Watermelon" },
+  { id: 11, cat: 2, price: 15, name: "Apple" },
+  { id: 12, cat: 2, price: 9, name: "Lemon" },
+  { id: 13, cat: 2, price: 15, name: "Orange" },
+  { id: 14, cat: 2, price: 17, name: "Peach" },
+  { id: 15, cat: 2, price: 6, name: "Corn" },
+  { id: 16, cat: 2, price: 30, name: "Watermelon" },
   { id: 17, cat: 2, price: 20, name: "Guava" },
   { id: 18, cat: 2, price: 25, name: "Coconut" },
-  { id: 19, cat: 2, price: 40, name: "Banana" },
-  { id: 20, cat: 2, price: 52, name: "Grapes" },
+  { id: 19, cat: 2, price: 20, name: "Banana" },
+  { id: 20, cat: 2, price: 22, name: "Grapes" },
 
   { id: 21, cat: 3, price: 10, name: "Milk" },
   { id: 22, cat: 3, price: 25, name: "Cheese" },
@@ -39,13 +39,40 @@ let shopData = [
   { id: 33, cat: 4, price: 15, name: "Ice Cream Pop" },
   { id: 34, cat: 4, price: 10, name: "Orange Juice" },
   { id: 35, cat: 4, price: 10, name: "Mineral Water" },
-  { id: 36, cat: 4, price: 20, name: "Orange Nectar" },
+  { id: 36, cat: 4, price: 20, name: "Mango Nectar" },
   { id: 37, cat: 4, price: 10, name: "XL" },
   { id: 38, cat: 4, price: 10, name: "Sprite" },
   { id: 39, cat: 4, price: 100, name: "Whiskey" },
   { id: 40, cat: 4, price: 100, name: "Sake" },
+  { id: 41, cat: 4, price: 70, name: "Vodka" },
 
+  // cat 2
+  { id: 42, cat: 2, price: 4, name: "Onion" },
+  { id: 43, cat: 2, price: 22, name: "Spinach" },
+  { id: 44, cat: 2, price: 24, name: "Cherry Tomato" },
+  { id: 45, cat: 2, price: 8, name: "Garlic" },
+  { id: 46, cat: 2, price: 13, name: "Cucumber" },
+  { id: 47, cat: 2, price: 15, name: "Ginger" },
+  { id: 48, cat: 2, price: 11, name: "Carrot" },
+  { id: 49, cat: 2, price: 20, name: "Mushrooms" },
+  { id: 50, cat: 2, price: 27, name: "Pineapple" },
+  { id: 51, cat: 2, price: 23, name: "Pumpkin" },
+  { id: 52, cat: 2, price: 19, name: "Kiwi" },
 
+  // cat 1
+  { id: 53, cat: 1, price: 48, name: "Ham" },
+  { id: 54, cat: 1, price: 30, name: "Fried Chicken" },
+  { id: 55, cat: 1, price: 90, name: "Beef" },
+
+  // cat 4
+  { id: 56, cat: 4, price: 10, name: "Coke" },
+  { id: 57, cat: 4, price: 10, name: "Diet Coke" },
+  { id: 58, cat: 4, price: 10, name: "Pepsi" },
+  { id: 59, cat: 4, price: 12, name: "Coca-Cola" },
+  { id: 60, cat: 4, price: 15, name: "Beer" },
+  { id: 61, cat: 4, price: 10, name: "Peach Juice" },
+  { id: 62, cat: 4, price: 14, name: "Carrot Juice" },
+  { id: 63, cat: 4, price: 14, name: "Berry Juice" },
 ]
 
 
@@ -60,7 +87,7 @@ let myCart = {
 
 document.addEventListener("DOMContentLoaded", function(event) { 
   TotalCost.innerHTML = myCart.cost + currency
-  displayItems(4)
+  displayItems(1)
 });
 
 function checkOut() {
