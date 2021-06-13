@@ -1,0 +1,26 @@
+#Credit-Card-Details{
+ margin: 5px;
+ width: 30vw;
+}
+
+#EpxDate{
+  position: relative;
+  left: 6px;
+  width: 17vw;
+}
+
+#CVV{
+  position: relative;
+  left: 6px;
+  width: 5vw;
+}
+#PayBtn{
+  margin-top:10px;
+  width: 20vw;
+  height: 8vh;
+}
+.Amount{
+  position: relative;
+  left: 6px;
+  width: 2vw;
+}
