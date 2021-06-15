@@ -17,29 +17,6 @@ const secHeader = document.getElementById("secHeader");
 const main = document.getElementById("main");
 //EvenetListenrs
 
-const logForm = document
-  .getElementById("logForm")
-  .addEventListener("submit", (event) => {
-    event.preventDefault();
-    getusers();
-    users.forEach((user) => {
-      if (
-        user.Password === logPassword.value &&
-        user.userName === logUserName.value
-      ) {
-        logged = user;
-        wellcome(event);
-      } else {
-        alert("user not exist");
-      }
-    });
-  });
-const signForm = document
-  .getElementById("signForm")
-  .addEventListener("submit", (event) => {
-    event.preventDefault();
-    adduser();
-  });
 window.onload = async () => {
   getusers();
 };
