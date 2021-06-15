@@ -16,6 +16,7 @@
       "id": 2
     },
     {
+<<<<<<< HEAD
       "userName": "sdasd",
       "Password": "x",
       "id": 3
@@ -1256,6 +1257,11 @@
         "id": 0
       },
       "id": 297
+=======
+      "q": "sdasd",
+      "w": "z",
+      "id": 3
+>>>>>>> parent of da06480 (dd)
     }
   ],
   "cart": [
