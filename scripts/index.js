@@ -17,28 +17,15 @@ const secHeader = document.getElementById("secHeader");
 const main = document.getElementById("main");
 //EvenetListenrs
 
-const logForm = document
-  .getElementById("logForm")
-  .addEventListener("submit", (event) => {
-    event.preventDefault();
-    getusers();
-    users.forEach((user) => {
-      if (
-        user.Password === logPassword.value &&
-        user.userName === logUserName.value
-      ) {
-        logged = user;
-        wellcome(event);
-      } else {
-        alert("user not exist");
-      }
-    });
-  });
+// const logForm = document
+//   .getElementById("logForm")
+//   .addEventListener("submit", function (event) {
+//     login(event);
+//   });
 const signForm = document
   .getElementById("signForm")
-  .addEventListener("submit", (event) => {
-    event.preventDefault();
-    adduser();
+  .addEventListener("submit", function (event) {
+    adduser(event);
   });
 window.onload = async () => {
   getusers();
@@ -51,25 +38,30 @@ select.addEventListener("change", (event) => {
 //functions
 
 //user log in sign up
-async function login() {
-  await getusers();
+function login(event) {
+  event.preventDefault();
+  logged = "";
   let userName = document.getElementById("logUserName").value;
   let Password = document.getElementById("logPassword").value;
-  users.map((user) => {
-    if (user.userName === userName && user.Password === Password) {
-      logged = user;
+
+  await $.when($.ajax(getusers())).then(function () {
+    users.map((user) => {
+      if (user.userName === userName && user.Password === Password) {
+        logged = user;
+      }
+    });
+    if (logged === undefined) {
+      alert("user not exsit");
+      return;
+    }
+    if (logged) {
+      wellcome();
+      debugger;
+      setconctedAccuont(logged);
+      document.getElementById("logUserName").value = "";
+      document.getElementById("logPassword").value = "";
     }
   });
-  if (logged === undefined) {
-    alert("no matches");
-    return;
-  }
-  if (logged) {
-    wellcome();
-  }
-  document.getElementById("logUserName").value = "";
-  document.getElementById("logPassword").value = "";
-  setconctedAccuont(logged);
 }
 async function reguser(userName, Password) {
   fetch("http://localhost:3000/Users", {
@@ -81,7 +73,7 @@ async function reguser(userName, Password) {
     body: JSON.stringify({ userName, Password }),
   });
 }
-function adduser() {
+function adduser(event) {
   let userName = document.getElementById("signUserName").value;
   let Password = document.getElementById("signPassword").value;
   let confirmPassWord = document.getElementById("confirmPassWord").value;
@@ -95,17 +87,19 @@ function adduser() {
   } else {
     alert("password not confirmed");
   }
+  event.preventDefault();
 }
-async function setconctedAccuont(q, w) {
-  logged = { userName: q, Password: w };
+async function setconctedAccuont(userName, Password) {
+  logged = { userName, Password };
   fetch("http://localhost:3000/conctedAccuont", {
     method: "POST",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ q, w }),
+    body: JSON.stringify({ userName, Password }),
   });
+  debugger;
 }
 //albumob
 async function getusers() {
