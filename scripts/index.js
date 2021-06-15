@@ -17,16 +17,6 @@ const secHeader = document.getElementById("secHeader");
 const main = document.getElementById("main");
 //EvenetListenrs
 
-// const logForm = document
-//   .getElementById("logForm")
-//   .addEventListener("submit", function (event) {
-//     login(event);
-//   });
-const signForm = document
-  .getElementById("signForm")
-  .addEventListener("submit", function (event) {
-    adduser(event);
-  });
 window.onload = async () => {
   getusers();
 };
@@ -44,7 +34,7 @@ function login(event) {
   let userName = document.getElementById("logUserName").value;
   let Password = document.getElementById("logPassword").value;
 
-  await $.when($.ajax(getusers())).then(function () {
+  $.when($.ajax(getusers())).then(function () {
     users.map((user) => {
       if (user.userName === userName && user.Password === Password) {
         logged = user;
@@ -56,7 +46,6 @@ function login(event) {
     }
     if (logged) {
       wellcome();
-      debugger;
       setconctedAccuont(logged);
       document.getElementById("logUserName").value = "";
       document.getElementById("logPassword").value = "";
@@ -64,7 +53,7 @@ function login(event) {
   });
 }
 async function reguser(userName, Password) {
-  fetch("http://localhost:3000/Users", {
+  await fetch("http://localhost:3000/Users", {
     method: "POST",
     headers: {
       Accept: "application/json",
@@ -91,7 +80,7 @@ function adduser(event) {
 }
 async function setconctedAccuont(userName, Password) {
   logged = { userName, Password };
-  fetch("http://localhost:3000/conctedAccuont", {
+  await fetch("http://localhost:3000/conctedAccuont", {
     method: "POST",
     headers: {
       Accept: "application/json",
@@ -99,7 +88,6 @@ async function setconctedAccuont(userName, Password) {
     },
     body: JSON.stringify({ userName, Password }),
   });
-  debugger;
 }
 //albumob
 async function getusers() {
