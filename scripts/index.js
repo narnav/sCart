@@ -48,7 +48,6 @@ async function login(event) {
   }
   document.getElementById("logUserName").value = "";
   document.getElementById("logPassword").value = "";
-  console.log(logged);
   setconctedAccuont(userName, Password, logged.id);
 }
 async function reguser(userName, Password) {
@@ -72,6 +71,8 @@ function adduser(event) {
     document.getElementById("signPassword").value = "";
     document.getElementById("confirmPassWord").value = "";
     setconctedAccuont(userName, Password, users.length++);
+    let o = users.length++;
+    logged = { userName, Password, o };
     wellcome();
   } else {
     alert("password not confirmed");
@@ -377,6 +378,7 @@ function toggle(c) {
   }
 }
 function wellcome() {
+  console.log(logged);
   getpohtos();
   getalbumob();
   getmovies();
@@ -431,9 +433,9 @@ function checkout() {
   // }, 3000);
 }
 async function saveorder() {
-  logged = await fetch("http://localhost:3000/conctedAccuont");
-  logged = await logged.json();
-  let userID = logged[0].id;
+  let e = await fetch("http://localhost:3000/conctedAccuont");
+  logged = await e.json();
+  let userID = logged[0].userID;
   fetch("http://localhost:3000/orders", {
     method: "POST",
     headers: {
@@ -446,10 +448,41 @@ async function saveorder() {
 async function show_my_orders() {
   let order = await fetch("http://localhost:3000/orders");
   order = await order.json();
-  console.log(order);
   order.forEach((order) => {
-    if (logged.id === order.userID) {
+    if (order.userID === logged.id) {
       console.log(order);
+      template = `<h1>my last order</h1>`;
+      let id = 1;
+      order.chossen_items.forEach((item) => {
+        if (item.cartId == 2) {
+          item.id = id;
+          template += `<div class="cart-item" id="${id}">
+                  <img src="${MOVIEIMGPATH + item.poster_path}"/>
+                  <div class="info"><p>${item.title}</p><span>${
+            item.price
+          }$</span></div></div>
+                  `;
+
+          id++;
+        }
+        if (item.cartId == 1) {
+          item.id = id;
+          template += `<div class="cart-item" id="${id}">
+                  <img src="${item.thumbnailUrl}"/>
+                  <div class="info"><p>${item.title}</p><span>${item.price}$</span></div></div>
+                  `;
+          id++;
+        }
+        if (item.cartId == 3) {
+          item.id = id;
+          template += `<div class="cart-item" id="${id}">
+                  <img src="${item.image}"/>
+                  <div class="info"><p>${item.name} </p><span>${item.price}$</span></div></div>
+                  `;
+          id++;
+        }
+        cartdisplay.innerHTML = template;
+      });
     }
   });
 }
