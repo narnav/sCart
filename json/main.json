@@ -6,34 +6,27 @@
       "id": 1
     },
     {
-      "userName": "ss",
-      "Password": "ss",
+      "userName": "bob",
+      "Password": "1234",
       "id": 2
     },
     {
-      "userName": "xxx",
-      "Password": "xxx",
+      "userName": "dora",
+      "Password": "1234",
       "id": 3
     },
     {
-      "userName": "test",
-      "Password": "test",
+      "userName": "ben",
+      "Password": "1234",
       "id": 4
     },
     {
-      "userName": "ss",
-      "Password": "ss",
+      "userName": "daniel",
+      "Password": "1234",
       "id": 5
     }
   ],
-  "conctedAccuont": [
-    {
-      "userName": "admin",
-      "Password": "admin",
-      "userID": 1,
-      "id": 1
-    }
-  ],
+  "conctedAccuont": [],
   "cart": [
     {
       "name": "MLP2",
@@ -156,115 +149,5 @@
       "description": "is the ninth studio album by American rapper Eminem. The album was released on December 15, 2017."
     }
   ],
-  "orders": [
-    {
-      "userID": 1,
-      "chossen_items": [
-        {
-          "adult": false,
-          "backdrop_path": "/fejok33Ijc6SppiEU1cfwA9Mo2.jpg",
-          "genre_ids": [
-            28,
-            80,
-            18
-          ],
-          "id": 4,
-          "original_language": "nl",
-          "original_title": "Ferry",
-          "overview": "Before he built a drug empire, Ferry Bouman returns to his hometown on a revenge mission that finds his loyalty tested — and a love that alters his life.",
-          "popularity": 2114.972,
-          "poster_path": "/w6n1pu9thpCVHILejsuhKf3tNCV.jpg",
-          "release_date": "2021-05-14",
-          "title": "Ferry",
-          "video": false,
-          "vote_average": 6.9,
-          "vote_count": 96,
-          "cartId": 2,
-          "price": 17,
-          "quan": 2
-        },
-        {
-          "adult": false,
-          "backdrop_path": "/70AV2Xx5FQYj20labp0EGdbjI6E.jpg",
-          "genre_ids": [
-            80,
-            28
-          ],
-          "id": 3,
-          "original_language": "en",
-          "original_title": "Wrath of Man",
-          "overview": "A cold and mysterious new security guard for a Los Angeles cash truck company surprises his co-workers when he unleashes precision skills during a heist. The crew is left wondering who he is and where he came from. Soon, the marksman's ultimate motive becomes clear as he takes dramatic and irrevocable steps to settle a score.",
-          "popularity": 2221.126,
-          "poster_path": "/M7SUK85sKjaStg4TKhlAVyGlz3.jpg",
-          "release_date": "2021-04-22",
-          "title": "Wrath of Man",
-          "video": false,
-          "vote_average": 7.8,
-          "vote_count": 914,
-          "cartId": 2,
-          "price": 188,
-          "quan": 2
-        }
-      ],
-      "id": 1
-    },
-    {
-      "chossen_items": [
-        {
-          "adult": false,
-          "backdrop_path": "/fejok33Ijc6SppiEU1cfwA9Mo2.jpg",
-          "genre_ids": [
-            28,
-            80,
-            18
-          ],
-          "id": 4,
-          "original_language": "nl",
-          "original_title": "Ferry",
-          "overview": "Before he built a drug empire, Ferry Bouman returns to his hometown on a revenge mission that finds his loyalty tested — and a love that alters his life.",
-          "popularity": 2114.972,
-          "poster_path": "/w6n1pu9thpCVHILejsuhKf3tNCV.jpg",
-          "release_date": "2021-05-14",
-          "title": "Ferry",
-          "video": false,
-          "vote_average": 6.9,
-          "vote_count": 96,
-          "cartId": 2,
-          "price": 275,
-          "quan": 1
-        }
-      ],
-      "id": 2
-    },
-    {
-      "userID": 5,
-      "chossen_items": [
-        {
-          "name": "Recovery",
-          "price": 562,
-          "rating": "10/8",
-          "image": "https://upload.wikimedia.org/wikipedia/en/6/60/Recovery_Album_Cover.jpg",
-          "id": 2,
-          "cartId": 3,
-          "title": "Recovery",
-          "description": "the seventh studio album by American rapper Eminem. It was released on June 18, 2010.",
-          "quan": 2,
-          "remaining": 2
-        },
-        {
-          "name": "MLP2",
-          "price": 541,
-          "rating": "10/9.5",
-          "image": "https://upload.wikimedia.org/wikipedia/en/8/87/The_Marshall_Mathers_LP_2.png",
-          "id": 1,
-          "title": "The Marshall Mathers LP 2",
-          "description": "the eighth studio album by American rapper Eminem. It was released on November 5, 2013.",
-          "cartId": 3,
-          "quan": 1,
-          "remaining": 8
-        }
-      ],
-      "id": 3
-    }
-  ]
+  "orders": []
 }
