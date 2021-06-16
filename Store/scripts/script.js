@@ -76,8 +76,9 @@ let shopData = [
 ]
 
 
-const currency = ` <img class="currency" style="width: 20px; height: 20px; float: none;
-margin-left:none;" src=./imgs/surplus.png height="10"/>`
+const currency = `💰`
+// ` <img class="currency" style="width: 20px; height: 20px; float: none;
+// margin-left:none;" src=./imgs/surplus.png height="10"/>`
 
 let myCart = {
   cost: 0,
@@ -85,9 +86,13 @@ let myCart = {
   index: 0
 }
 
-document.addEventListener("DOMContentLoaded", function(event) { 
-  TotalCost.innerHTML = myCart.cost + currency
-  displayItems(1)
+function updateCartPrice(){
+  TotalCost.innerHTML = myCart.cost + currency;
+}
+
+$( document ).ready(function() {
+  updateCartPrice();
+  // displayItems(1)
 });
 
 function checkOut() {
@@ -106,7 +111,7 @@ for (let index = 0; index < myCart.cart.length; index++) {
   } 
   
 }
-    alert(`PRICE: ${myCart.cost}$
+    alert(`PRICE: ${myCart.cost + currency}
 ${itemsList}`)
     location.reload();
   } else { alert(`Cart is empty`) }
@@ -116,7 +121,7 @@ function addToCart(prodID, prodPrice) {
   goodToast(`${shopData[prodID-1].name} added to cart`)
   myCart.cart.push(prodID)
   myCart.cost += prodPrice
-  TotalCost.innerHTML = myCart.cost + currency
+  updateCartPrice();
   shoppingCart.innerHTML += `
   <li id="card${myCart.index}" class="cart-container list-group-item">
       <div class="card  alert-light">
@@ -143,7 +148,7 @@ function removeCard(_cardID, minusPrice, _prodID) {
   document.getElementById(`card${_cardID}`).remove();
 
   myCart.cost -= minusPrice
-  TotalCost.innerHTML = myCart.cost + currency
+  updateCartPrice();
   cartItems.innerText--
   if(cartItems.innerText == "0"){cartItems.innerText = ""}
   badToast(`${shopData[_prodID-1].name} removed from cart`)
