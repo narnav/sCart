@@ -439,7 +439,6 @@ input::-webkit-inner-spin-button {
   -webkit-text-security: disc;
 }
 .orders-container {
-  pointer-events: none;
   color: white;
   h1 {
     text-align: center;
@@ -494,4 +493,27 @@ input::-webkit-inner-spin-button {
   font-size: 24px;
   color: white;
   transition: all 0.3s ease;
+}
+.lastop-container {
+  pointer-events: all;
+  width: 70%;
+  height: 7vh;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  button {
+    padding: 1rem;
+    border: none;
+    cursor: pointer;
+    background-color: rebeccapurple;
+    color: white;
+    font-size: 18px;
+  }
+}
+.las {
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 }

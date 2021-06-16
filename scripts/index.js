@@ -389,10 +389,18 @@ function wellcome() {
   profile.innerHTML = `<div class="profile">${logged.userName}</div>`;
   document.body.style.background = "black";
 }
+function toggleback() {
+  secHeader.style.display = "flex";
+  main.style.display = "flex";
+  document.getElementById("ordersdisplay").style.display = "none";
+  displayAll();
+}
+
 function checkout() {
   if (chossen_items.length === 0) return;
   secHeader.style.display = "none";
   main.style.display = "none";
+  document.getElementById("ordersdisplay").style.display = "block";
   toggle("off");
   template = "";
 
@@ -409,13 +417,7 @@ function checkout() {
     </div>
 
     <div class="button-contanier">
-    <button class="button quan-input" type="button" onclick="this.parentNode.querySelector('[type=number]').stepDown();">
-    -
-    </button>
-    <input type="number" name="number" min="0" max="100" class="quan-input" id="${item.id}_quanInput" value="${item.quan}">
-    <button class="button quan-input" type="button" onclick="this.parentNode.querySelector('[type=number]').stepUp();">
-    +
-    </button>
+    <span class="quan-input" id="${item.id}_quanInput" >${item.quan}</span>
     </div>
 
     <div class="price">
@@ -426,11 +428,17 @@ function checkout() {
     `;
   });
   template += `</div><div class="total-container">total :<span id="total_span">${total}$</span></div></div>`;
+  template += `<div class="las">
+  <h3>thank you for shopping in our shop</h3>
+  <div class="lastop-container">
+  <button onclick="toggleback()">continue shopping</button>
+  <button onclick="location.reload();">swap user</button>
+  </div>
+
+
+  <div>`;
   document.getElementById("ordersdisplay").innerHTML = template;
   saveorder();
-  // setTimeout(function () {
-  //   location.reload();
-  // }, 3000);
 }
 async function saveorder() {
   let e = await fetch("http://localhost:3000/conctedAccuont");
@@ -451,8 +459,8 @@ async function show_my_orders() {
   order.forEach((order) => {
     if (order.userID === logged.id) {
       console.log(order);
-      template = `<h1>my last order</h1>`;
       let id = 1;
+      template = `<h1>order number ${order.id}</h1>`;
       order.chossen_items.forEach((item) => {
         if (item.cartId == 2) {
           item.id = id;
@@ -481,7 +489,7 @@ async function show_my_orders() {
                   `;
           id++;
         }
-        cartdisplay.innerHTML = template;
+        cartdisplay.innerHTML += template;
       });
     }
   });

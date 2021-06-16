@@ -697,7 +697,6 @@ input::-webkit-inner-spin-button {
 }
 
 .orders-container {
-  pointer-events: none;
   color: white;
 }
 
@@ -771,5 +770,42 @@ input::-webkit-inner-spin-button {
   color: white;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
+}
+
+.lastop-container {
+  pointer-events: all;
+  width: 70%;
+  height: 7vh;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.lastop-container button {
+  padding: 1rem;
+  border: none;
+  cursor: pointer;
+  background-color: rebeccapurple;
+  color: white;
+  font-size: 18px;
+}
+
+.las {
+  height: 20vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 /*# sourceMappingURL=index.css.map */
