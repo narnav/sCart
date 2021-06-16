@@ -40,7 +40,7 @@ let shopData = [
   { id: 34, cat: 4, price: 10, name: "Orange Juice" },
   { id: 35, cat: 4, price: 10, name: "Mineral Water" },
   { id: 36, cat: 4, price: 20, name: "Mango Nectar" },
-  { id: 37, cat: 4, price: 10, name: "XL" },
+  { id: 37, cat: 4, price: 10, name: "Fanta" },
   { id: 38, cat: 4, price: 10, name: "Sprite" },
   { id: 39, cat: 4, price: 100, name: "Whiskey" },
   { id: 40, cat: 4, price: 100, name: "Sake" },
@@ -74,6 +74,7 @@ let shopData = [
   { id: 62, cat: 4, price: 14, name: "Carrot Juice" },
   { id: 63, cat: 4, price: 14, name: "Berry Juice" },
 ]
+
 
 
 const currency = `💰`
