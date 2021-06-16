@@ -17,7 +17,7 @@ const secHeader = document.getElementById("secHeader");
 const main = document.getElementById("main");
 //EvenetListenrs
 
-window.onload = async () => {
+window.onload = () => {
   getusers();
 };
 select.addEventListener("change", (event) => {
@@ -41,8 +41,10 @@ async function login(event) {
     alert("no matches");
     return;
   }
-  if (logged) {
+  if (logged.userName) {
     wellcome();
+  } else {
+    alert("no matches");
   }
   document.getElementById("logUserName").value = "";
   document.getElementById("logPassword").value = "";
@@ -76,7 +78,16 @@ function adduser(event) {
   }
 }
 async function setconctedAccuont(userName, Password) {
-  debugger;
+  let res = await fetch("http://localhost:3000/conctedAccuont");
+  let con = await res.json();
+  console.log(con);
+  if (con.length !== 0) {
+    con.forEach((i) => {
+      fetch("http://localhost:3000/conctedAccuont/" + JSON.stringify(i.id), {
+        method: "DELETE",
+      }).catch((err) => console.log(err));
+    });
+  }
   fetch("http://localhost:3000/conctedAccuont", {
     method: "POST",
     headers: {
@@ -85,7 +96,6 @@ async function setconctedAccuont(userName, Password) {
     },
     body: JSON.stringify({ userName, Password }),
   }).catch((err) => {
-    debugger;
     console.log(err);
   });
 }
@@ -379,6 +389,7 @@ function wellcome() {
   document.body.style.background = "black";
 }
 function checkout() {
+  if (chossen_items.length === 0) return;
   secHeader.style.display = "none";
   main.style.display = "none";
   toggle("off");
@@ -418,5 +429,5 @@ function checkout() {
 
   setTimeout(function () {
     location.reload();
-  }, 5000);
+  }, 3000);
 }

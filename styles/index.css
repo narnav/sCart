@@ -762,4 +762,14 @@ input::-webkit-inner-spin-button {
   color: white;
   display: flex;
 }
+
+#myOrdersBtn {
+  cursor: pointer;
+  width: 15%;
+  text-align: center;
+  font-size: 24px;
+  color: white;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
 /*# sourceMappingURL=index.css.map */
