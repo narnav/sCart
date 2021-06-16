@@ -454,13 +454,15 @@ async function saveorder() {
   });
 }
 async function show_my_orders() {
+  main.style.display = "flex";
+  document.getElementById("ordersdisplay").style.display = "none";
   let order = await fetch("http://localhost:3000/orders");
   order = await order.json();
+  cartdisplay.innerHTML = "";
   order.forEach((order) => {
     if (order.userID === logged.id) {
-      console.log(order);
-      let id = 1;
       template = `<h1>order number ${order.id}</h1>`;
+      let id = 1;
       order.chossen_items.forEach((item) => {
         if (item.cartId == 2) {
           item.id = id;
@@ -489,8 +491,8 @@ async function show_my_orders() {
                   `;
           id++;
         }
-        cartdisplay.innerHTML += template;
       });
+      cartdisplay.innerHTML += template;
     }
   });
 }
