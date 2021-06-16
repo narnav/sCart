@@ -244,7 +244,7 @@ function addToClientArray() {
     orderDetails.push({
       PKorderId: orderDetails.length + 1,
       dateOrder: new Date(),
-      clientId: clientList.length,
+      clientId: PKidClientNum,
       product: arrayOrder,
     });
     PKidClientNum++;
