@@ -9,4 +9,6 @@ open in default browser
 
 # sreach is case sensitive
 
+to search am movie you need the full name
+
 # bugs

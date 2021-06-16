@@ -48,7 +48,8 @@ async function login(event) {
   }
   document.getElementById("logUserName").value = "";
   document.getElementById("logPassword").value = "";
-  setconctedAccuont(userName, Password);
+  console.log(logged);
+  setconctedAccuont(userName, Password, logged.id);
 }
 async function reguser(userName, Password) {
   fetch("http://localhost:3000/Users", {
@@ -67,20 +68,18 @@ function adduser(event) {
   let confirmPassWord = document.getElementById("confirmPassWord").value;
   if (Password === confirmPassWord) {
     reguser(userName, Password);
-    logged = { userName, Password };
     document.getElementById("signUserName").value = "";
     document.getElementById("signPassword").value = "";
     document.getElementById("confirmPassWord").value = "";
-    setconctedAccuont(userName, Password);
+    setconctedAccuont(userName, Password, users.length++);
     wellcome();
   } else {
     alert("password not confirmed");
   }
 }
-async function setconctedAccuont(userName, Password) {
+async function setconctedAccuont(userName, Password, userID) {
   let res = await fetch("http://localhost:3000/conctedAccuont");
   let con = await res.json();
-  console.log(con);
   if (con.length !== 0) {
     con.forEach((i) => {
       fetch("http://localhost:3000/conctedAccuont/" + JSON.stringify(i.id), {
@@ -94,7 +93,7 @@ async function setconctedAccuont(userName, Password) {
       Accept: "application/json",
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ userName, Password }),
+    body: JSON.stringify({ userName, Password, userID }),
   }).catch((err) => {
     console.log(err);
   });
@@ -426,8 +425,31 @@ function checkout() {
   });
   template += `</div><div class="total-container">total :<span id="total_span">${total}$</span></div></div>`;
   document.getElementById("ordersdisplay").innerHTML = template;
-
-  setTimeout(function () {
-    location.reload();
-  }, 3000);
+  saveorder();
+  // setTimeout(function () {
+  //   location.reload();
+  // }, 3000);
+}
+async function saveorder() {
+  logged = await fetch("http://localhost:3000/conctedAccuont");
+  logged = await logged.json();
+  let userID = logged[0].id;
+  fetch("http://localhost:3000/orders", {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ userID, chossen_items }),
+  });
+}
+async function show_my_orders() {
+  let order = await fetch("http://localhost:3000/orders");
+  order = await order.json();
+  console.log(order);
+  order.forEach((order) => {
+    if (logged.id === order.userID) {
+      console.log(order);
+    }
+  });
 }
