@@ -57,7 +57,7 @@
   <form id="logForm">
   <input type="text" placeholder="UserName" id="logUserName" required>
   <input class="inppassword" type="text" placeholder="Password" id="logPassword" required>
-  <input class="inpsub"type="submit" value="Log In">
+  <input class="inpsub" type="submit" onclick="login(event)" value="Log In">
 </form>
 <span class="span">not signed yet?<button onclick="toggle('signsection')">Sign up</button></span>
 </section>
@@ -66,7 +66,7 @@
     <input type="text" placeholder="pick username" id="signUserName" required>
     <input class="inppassword" type="text" placeholder="create Password"  autocomplete="none" id="signPassword" required>
     <input class="inppassword" type="text" placeholder="confirm password" autocomplete="none"  id="confirmPassWord" required>
-    <input class="inpsub" type="submit" value="Sign Up">
+    <input class="inpsub" type="submit"  onclick="adduser(event)" value="Sign Up">
   </form>
   <span class="span">Signed alredy?<button onclick="toggle('logsection' ,event)">Log in</button></span>
 

@@ -28,8 +28,8 @@ select.addEventListener("change", (event) => {
 //functions
 
 //user log in sign up
-async function login() {
-  await getusers();
+async function login(event) {
+  event.preventDefault();
   let userName = document.getElementById("logUserName").value;
   let Password = document.getElementById("logPassword").value;
   users.map((user) => {
@@ -46,7 +46,7 @@ async function login() {
   }
   document.getElementById("logUserName").value = "";
   document.getElementById("logPassword").value = "";
-  setconctedAccuont(logged);
+  setconctedAccuont(userName, Password);
 }
 async function reguser(userName, Password) {
   fetch("http://localhost:3000/Users", {
@@ -58,12 +58,14 @@ async function reguser(userName, Password) {
     body: JSON.stringify({ userName, Password }),
   });
 }
-function adduser() {
+function adduser(event) {
+  event.preventDefault();
   let userName = document.getElementById("signUserName").value;
   let Password = document.getElementById("signPassword").value;
   let confirmPassWord = document.getElementById("confirmPassWord").value;
   if (Password === confirmPassWord) {
     reguser(userName, Password);
+    logged = { userName, Password };
     document.getElementById("signUserName").value = "";
     document.getElementById("signPassword").value = "";
     document.getElementById("confirmPassWord").value = "";
@@ -73,15 +75,18 @@ function adduser() {
     alert("password not confirmed");
   }
 }
-async function setconctedAccuont(q, w) {
-  logged = { userName: q, Password: w };
+async function setconctedAccuont(userName, Password) {
+  debugger;
   fetch("http://localhost:3000/conctedAccuont", {
     method: "POST",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ q, w }),
+    body: JSON.stringify({ userName, Password }),
+  }).catch((err) => {
+    debugger;
+    console.log(err);
   });
 }
 //albumob
