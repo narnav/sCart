@@ -12,3 +12,5 @@ open in default browser
 to search am movie you need the full name
 
 # bugs
+
+no order still able to click my orders
