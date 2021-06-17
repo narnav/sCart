@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="scripts/index.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/36dc311155.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="styles/index.css" />
+  </head>
+
+  <body>
+    <header id="header">
+      <nav class="nav-box">
+        <div class="nav-item logo"><span>The cart project</span></div>
+        <div id="myOrdersBtn" onclick=" show_my_orders()">my orders</div>
+        <div class="profile" id="profile">Log In</div>
+      </nav>
+    </header>
+    <div class="sec-header" id="secHeader">
+<div class="sort-container">
+  <form onsubmit="event.preventDefault()">
+  <input  type="text" placeholder="search" id="searchTerm" required>
+  <button id="searchButton" ><i class="fas fa-search"></i></button></form>
+</div>
+<div class="ss">
+  <label class="custom-select" for="filter">
+    <select name="filter" id="filter" >
+    <option value="all">all</option>
+    <option value="photos">photos</option>
+    <option value="albums">albums</option>
+    <option value="movies">movies</option>
+   </select>
+  </label> 
+</div>
+</div>
+
+    <main id="main">
+<div class="my-cartarea" id="my_cartarea">
+  <div class="my-cart" >
+    <h1>My cart</h1>
+    <div class="chosen-items-list" id="chossen_items" onclick="handle(event)"></div>
+  </div>
+  <div class="checkout">
+     <div class="total-container"><p>total :</p><span id="total_span">2000$</span></div>
+     <div class="check-button-container"><button id="checkBtn" onclick="checkout()">check out</button></div>
+  </div>
+</div>
+</div>
+<div  class="cart-container" id="cartContainer" onclick="handeleclick(event)">
+</div>
+</main>
+<section id="logsection" class="log-section">
+  <form id="logForm" onsubmit="login(event)">
+  <input type="text" pattern="[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)" title = "must at least  contain one uppercase letter and tow words with sapce" placeholder="UserName" id="logUserName" required>
+  <input class="inppassword" pattern="(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}" title="Minimum eight characters, at least one letter and one number" type="text" placeholder="Password" id="logPassword" required>
+  <input class="inpsub" type="submit"  value="Log In">
+</form>
+<span class="span">not signed yet?<button onclick="toggle('signsection')">Sign up</button></span>
+</section>
+<section id="signsection"class="sign-section">
+  <form id="signForm" onsubmit="adduser(event)">
+    <input type="text" pattern="[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)" placeholder="pick username" id="signUserName" required>
+    <input class="inppassword" pattern="(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}" title="Minimum eight characters, at least one letter and one number" type="text" placeholder="create Password"  autocomplete="none" id="signPassword" required>
+    <input class="inppassword" pattern="(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}" title="Minimum eight characters, at least one letter and one number" type="text" placeholder="confirm password" autocomplete="none"  id="confirmPassWord" required>
+    <input class="inpsub" type="submit"   value="Sign Up">
+  </form>
+  <span class="span">Signed alredy?<button onclick="toggle('logsection' ,event)">Log in</button></span>
+
+</section>
+<div class="orders-container" id="ordersdisplay">
+  </div>
+  </body>
+</html>
