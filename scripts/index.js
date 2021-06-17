@@ -131,6 +131,17 @@ async function getmovies() {
     movie.quan = 1;
     cart_items.push(movie);
   });
+  res = await fetch(
+    "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&page=2"
+  );
+  moviesob = await res.json();
+  moviesob.results.forEach((movie) => {
+    movie.cartId = 2;
+    movie.price = randomprice();
+    movie.quan = 1;
+    cart_items.push(movie);
+  });
+
   displayAll();
 }
 //pohotos
@@ -139,7 +150,7 @@ async function getpohtos() {
   const pohtosob = await res.json();
   let counter = 1;
   pohtosob.forEach((element) => {
-    if (counter < 10) {
+    if (counter < 31) {
       element.cartId = 1;
       element.price = randomprice();
 
@@ -454,6 +465,7 @@ async function saveorder() {
   });
 }
 async function show_my_orders() {
+  let ihave = false;
   if (logged.userName == undefined) return;
   main.style.display = "flex";
   document.getElementById("ordersdisplay").style.display = "none";
@@ -494,6 +506,11 @@ async function show_my_orders() {
         }
       });
       cartdisplay.innerHTML += template;
+      ihave = true;
     }
   });
+  if (ihave === false) {
+    toggleback();
+    alert("you dont have orders");
+  }
 }

@@ -18,6 +18,11 @@ photos:  "https://jsonplaceholder.typicode.com/photos"
 
 albums: json/main.json
 
-</script>
-
-# bugs
+ let we have = {
+30 photos can be changed up to 5000
+12 albums
+movies :
+total_pages: 500
+total_results: 10000
+used :40
+}
