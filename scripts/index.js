@@ -15,6 +15,8 @@ let logsection = document.getElementById("logsection");
 let signsection = document.getElementById("signsection");
 const secHeader = document.getElementById("secHeader");
 const main = document.getElementById("main");
+let moviesob = [];
+let albumob = [];
 //EvenetListenrs
 
 window.onload = () => {
@@ -106,7 +108,7 @@ async function getusers() {
 }
 async function getalbumob() {
   let res = await fetch(" http://localhost:3000/cart");
-  const albumob = await res.json();
+  albumob = await res.json();
   let c = 1;
   albumob.forEach((album) => {
     album.quan = 1;
@@ -122,11 +124,10 @@ async function getalbumob() {
 //movies
 async function getmovies() {
   let res = await fetch(MOVIEAPIURL);
-  const moviesob = await res.json();
+  moviesob = await res.json();
   moviesob.results.forEach((movie) => {
     movie.cartId = 2;
     movie.price = randomprice();
-
     movie.quan = 1;
     cart_items.push(movie);
   });
@@ -333,36 +334,36 @@ function handle(event) {
   }
 }
 
-function search(event) {
-  event.preventDefault();
-  let term = document.getElementById("searchTerm").value;
-  let res = cart_items.filter((x) => x.title == term);
-  res = res[0];
-  console.log(res);
+$("#searchTerm").on("input", function () {
+  let res = [];
+  let term = document.getElementById("searchTerm").value.toLowerCase();
+  res = cart_items.filter((x) => x.title.toLowerCase().includes(term));
   template = "";
-  if (res.cartId == 2) {
-    template += `<div class="cart-item" id="${res.id}">
-            <img src="${MOVIEIMGPATH + res.poster_path}"/>
-            <div class="info"><p>${res.title}</p><span>${
-      res.price
-    }$</span></div></div>
-            `;
-  }
-  if (res.cartId == 1) {
-    template += `<div class="cart-item" id="${res.id}">
-            <img src="${res.thumbnailUrl}"/>
-            <div class="info"><p>${res.title}</p><span>${res.price}$</span></div></div>
-            `;
-  }
-  if (res.cartId == 3) {
-    template += `<div class="cart-item" id="${res.id}">
-            <img src="${res.image}"/>
-            <div class="info"><p>${res.name} </p><span>${res.price}$</span></div></div>
-            `;
-  }
-  cartdisplay.innerHTML = template;
-  document.getElementById("searchTerm").value = "";
-}
+  res.forEach((res) => {
+    if (res.cartId == 2) {
+      template += `<div class="cart-item" id="${res.id}">
+                <img src="${MOVIEIMGPATH + res.poster_path}"/>
+                <div class="info"><p>${res.title}</p><span>${
+        res.price
+      }$</span></div></div>
+                `;
+    }
+    if (res.cartId == 1) {
+      template += `<div class="cart-item" id="${res.id}">
+                <img src="${res.thumbnailUrl}"/>
+                <div class="info"><p>${res.title}</p><span>${res.price}$</span></div></div>
+                `;
+    }
+    if (res.cartId == 3) {
+      template += `<div class="cart-item" id="${res.id}">
+                <img src="${res.image}"/>
+                <div class="info"><p>${res.name} </p><span>${res.price}$</span></div></div>
+                `;
+    }
+    cartdisplay.innerHTML = template;
+  });
+});
+
 function toggle(c) {
   if (c === "logsection") {
     logsection.style.display = "flex";
@@ -378,7 +379,6 @@ function toggle(c) {
   }
 }
 function wellcome() {
-  console.log(logged);
   getpohtos();
   getalbumob();
   getmovies();

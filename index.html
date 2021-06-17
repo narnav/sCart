@@ -23,7 +23,7 @@
     </header>
     <div class="sec-header" id="secHeader">
 <div class="sort-container">
-  <form onsubmit="search(event)">
+  <form onsubmit="event.preventDefault()">
   <input  type="text" placeholder="search" id="searchTerm" required>
   <button id="searchButton" ><i class="fas fa-search"></i></button></form>
 </div>

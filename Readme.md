@@ -7,9 +7,18 @@ json-server --watch json/main.json
 
 open in default browser
 
-# sreach is case sensitive
+# resources
 
-to search am movie you need the full name
+<script>
+const MOVIEAPIURL =
+"https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&page=1";
+const MOVIEIMGPATH = "https://image.tmdb.org/t/p/w1280";
+
+photos:  "https://jsonplaceholder.typicode.com/photos"
+
+albums: json/main.json
+
+</script>
 
 # bugs
 
