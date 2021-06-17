@@ -56,17 +56,17 @@
 </main>
 <section id="logsection" class="log-section">
   <form id="logForm" onsubmit="login(event)">
-  <input type="text" placeholder="UserName" id="logUserName" required>
-  <input class="inppassword" type="text" placeholder="Password" id="logPassword" required>
+  <input type="text" pattern="[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)" title = "must at least  contain one uppercase letter and tow words with sapce" placeholder="UserName" id="logUserName" required>
+  <input class="inppassword" pattern="(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}" title="Minimum eight characters, at least one letter and one number" type="text" placeholder="Password" id="logPassword" required>
   <input class="inpsub" type="submit"  value="Log In">
 </form>
 <span class="span">not signed yet?<button onclick="toggle('signsection')">Sign up</button></span>
 </section>
 <section id="signsection"class="sign-section">
   <form id="signForm" onsubmit="adduser(event)">
-    <input type="text" placeholder="pick username" id="signUserName" required>
-    <input class="inppassword" type="text" placeholder="create Password"  autocomplete="none" id="signPassword" required>
-    <input class="inppassword" type="text" placeholder="confirm password" autocomplete="none"  id="confirmPassWord" required>
+    <input type="text" pattern="[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)" placeholder="pick username" id="signUserName" required>
+    <input class="inppassword" pattern="(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}" title="Minimum eight characters, at least one letter and one number" type="text" placeholder="create Password"  autocomplete="none" id="signPassword" required>
+    <input class="inppassword" pattern="(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}" title="Minimum eight characters, at least one letter and one number" type="text" placeholder="confirm password" autocomplete="none"  id="confirmPassWord" required>
     <input class="inpsub" type="submit"   value="Sign Up">
   </form>
   <span class="span">Signed alredy?<button onclick="toggle('logsection' ,event)">Log in</button></span>
