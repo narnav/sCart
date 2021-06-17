@@ -21,5 +21,3 @@ albums: json/main.json
 </script>
 
 # bugs
-
-no order still able to click my orders

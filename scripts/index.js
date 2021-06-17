@@ -454,6 +454,7 @@ async function saveorder() {
   });
 }
 async function show_my_orders() {
+  if (logged.userName == undefined) return;
   main.style.display = "flex";
   document.getElementById("ordersdisplay").style.display = "none";
   let order = await fetch("http://localhost:3000/orders");
