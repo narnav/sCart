@@ -77,9 +77,9 @@ let shopData = [
 
 
 
-const currency = `💰`
-// ` <img class="currency" style="width: 20px; height: 20px; float: none;
-// margin-left:none;" src=./imgs/surplus.png height="10"/>`
+const currency = ` <img class="currency" style="width: 20px; height: 20px; float: none; margin-left:0;" src=./imgs/surplus.png height="10"/>`
+
+// ` <img class="currency" style="width: 20px; height: 20px; float: none; margin-left:none;" src=./imgs/surplus.png height="10"/>`
 
 let myCart = {
   cost: 0,
@@ -95,6 +95,8 @@ $( document ).ready(function() {
   updateCartPrice();
   // displayItems(1)
 });
+
+// <!-- CHECKOUT --> //
 
 function checkOut() {
   if (myCart.cost > 0) {
@@ -118,6 +120,8 @@ ${itemsList}`)
   } else { alert(`Cart is empty`) }
 }
 
+// <!-- ADD TO CART --> //
+
 function addToCart(prodID, prodPrice) {
   goodToast(`${shopData[prodID-1].name} added to cart`)
   myCart.cart.push(prodID)
@@ -130,8 +134,8 @@ function addToCart(prodID, prodPrice) {
         <div class="card-title">
           ${shopData[prodID - 1].name}
         </div>
-        <div class="card-subtitle">
-          Cost: ${prodPrice}${currency}
+        <div class="card-subtitle cart-cost">
+          ${prodPrice} ${currency}
         </div>
         <button onclick="removeCard(${myCart.index},${prodPrice},${prodID})" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> REMOVE</button>
       </div>
@@ -143,6 +147,8 @@ function addToCart(prodID, prodPrice) {
   console.log(myCart.cart.length)
 
 }
+
+// <!-- REMOVE FROM CART --> //
 
 function removeCard(_cardID, minusPrice, _prodID) {
   myCart.cart.splice(_cardID, 1, 0)
@@ -158,6 +164,8 @@ function removeCard(_cardID, minusPrice, _prodID) {
 
 }
 
+// <!-- DISPLAY ITEMS --> //
+
 function displayItems(_num) {
   display.innerHTML = ""
   for (let index = 0; index < shopData.length; index++) {
@@ -165,13 +173,13 @@ function displayItems(_num) {
       display.innerHTML += `<div class=" align-items-start">
       <div class="card col-sm" >
         
-        <div class="card  alert-light">
+        <div class="card alert-light">
         <img src="imgs/${shopData[index].id}.gif">
           <div class="card-title">
             ${shopData[index].name}
           </div>
-          <div class="card-subtitle">
-            Price: ${shopData[index].price}${currency}
+          <div class="card-subtitle cart-cost">
+            ${shopData[index].price}${currency}
           </div>
           <br>
           <button onclick="addToCart(${shopData[index].id},${shopData[index].price})" class="btn btn-success btn-sm">Add to cart</button>
@@ -179,10 +187,11 @@ function displayItems(_num) {
       </div>`
 
     }
-
   }
-
 }
+
+// <!-- ТОСТИК --> //
+
 function goodToast(_message) {
   Toastify({
     text: _message,

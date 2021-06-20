@@ -44,7 +44,7 @@
   float: left;
   width: calc(100% - 110px);
   margin-bottom: 10px;
-  font-weight: normal;
+
   color: rgb(51, 48, 48);
 }
 
@@ -75,8 +75,13 @@
 .currency {
   width: 20px;
   height: 20px;
-  float: left;
+  float: none;
   margin-right: 0%;
+}
+
+.cart-cost{
+font-weight: 600;
+font-size: 115%;
 }
 
 .card-subtitle > .currency {
@@ -84,4 +89,22 @@
   height: 20px;
   float: left;
   margin-right: 0%;
+}
+@media (max-width: 426px) {
+  .items-container > * {
+      width: 100%!important;
+  }
+}
+
+@media (max-width: 768px) {
+  .items-container > * {
+      width: calc(50% - 1em);
+  }
+
+  .sidenav {
+      height: auto;
+      box-shadow: 0 0 .4em silver;
+      overflow: auto;
+      max-height: 50%
+  }
 }
