@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Shophop | Main</title>
+
+    <!-- Bootstrap style -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <!-- Animate -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <!-- My CSS -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+</head>
+
+<body class="index_body" id="body">
+
+    <!-- CONTAINER -->
+    <div class="container-fluid">
+        <div class="row cartRow">
+
+            <!-- Menu -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="products.html" target="showProducts">ShopHop</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="products.html?type=shirts" target="showProducts">Shirts</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="products.html?type=skirts" target="showProducts">Skirts</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- div for products in iframe -->
+            <div class="col-9">
+                <iframe name="showProducts" src="products.html"></iframe>
+            </div>
+
+            <!-- div for show cart & cart function -->
+            <div class="col-3" id="cartArea">
+                <div id="myCart"></div>
+                <div id="totalPayArea" class="row">
+                    <p id="totalPayMoney" class="col-8"><span class="prod_details">Total To Pay: </span>0₪</p>
+
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-info col-4" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">
+                        <img src="images/payIcon-01.svg" class="svgIcon">CheckOut
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Thanks For Buying!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="buyingMsg">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-info" data-bs-dismiss="modal">I want to buy more</button>
+                    <button type="button" class="btn btn-info">I took all I want</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+
+    <!-- My Scripts -->
+    <script>
+        // the products arrary
+        let Products = (JSON.parse(localStorage.getItem('products')));
+
+        // the cart arrary
+        let Cart = (JSON.parse(localStorage.getItem('cart')));
+
+        // reuse function to show all cart
+        // the value of every product in cart is static, so we need to get more function to get the real value, and not what we set in the start
+        function _showAllCart() {
+            let Cart = (JSON.parse(localStorage.getItem('cart')));
+            myCart.innerHTML = `<h1>My Cart:</h1>`;
+            for (let i = 0; i < Cart.length; i++) {
+                // console.log(Cart[i]);
+                myCart.innerHTML += `
+            <div class="cart_card col-sm-12">
+                <img src=${Cart[i].prodImg} class="img-fluid">
+                <p><span class="prod_details">Name: </span>${Cart[i].prodName}</p>
+                <p><span class="prod_details">Price: </span>${Cart[i].prodPrice}₪</p>
+                <p><span class="prod_details">Amount: </span> <input onchange="_getRealValue(${Cart[i].serialNum})" type="number" id="${Cart[i].serialNum}" name="amount${Cart[i].serialNum}" min="0" value="${Cart[i].amount}" ></p>
+            </div>
+            `;
+            }
+        }
+
+        // here we get the serial num of the product we change, this is also its id. now we have to each input - uniqe id, and we can call it.
+        // fron here we call to the update function from cart to products.
+        function _getRealValue(serialNumProdInCart) {
+            let prodInCartValue = document.getElementById(serialNumProdInCart).value;
+            // console.log(prodInCartValue);
+            _saveCartValuesToStore();
+            _updateChangeFromCartToStore(serialNumProdInCart, prodInCartValue);
+        }
+
+        // reuse function to show the total Amount to pay
+        let total = 0;
+        function _calTotal() {
+            // console.log('storage')
+            // debugger
+            let Cart = (JSON.parse(localStorage.getItem('cart')));
+            for (let index = 0; index < Cart.length; index++) {
+                total += (Number(Cart[index].amount)) * (Number(Cart[index].prodPrice));
+            }
+            totalPayMoney.innerHTML = `<span class="prod_details">Total To Pay: </span>${total}₪`
+            buyingMsg.innerHTML = `Your purchase amount is ${total}₪`
+            total = 0;
+        }
+
+        window.addEventListener("load", _calTotal)
+        window.addEventListener("storage", _showAllCart);
+        window.addEventListener("storage", _calTotal);
+        _showAllCart();
+
+        // build a function that save all amounts from Cart to local Storage of the store and then when the products will update it not be 0
+        function _saveCartValuesToStore() {
+            let Cart = (JSON.parse(localStorage.getItem('cart')));
+            let Products = (JSON.parse(localStorage.getItem('products')));
+
+            for (let productsInCart = 0; productsInCart < Cart.length; productsInCart++) {
+                for (let productInStore = 0; productInStore < Products.length; productInStore++) {
+                    if (Cart[productsInCart].serialNum == Products[productInStore].serialNum) {
+                        Products[productInStore].amount = Cart[productsInCart].amount;
+                    }
+                }
+            }
+            localStorage.setItem('products', JSON.stringify(Products));
+        }
+
+        function _updateChangeFromCartToStore(serialNumProdInCart, prodInCartValue) {
+            // debugger
+            let Products = (JSON.parse(localStorage.getItem('products')));
+            let Cart = (JSON.parse(localStorage.getItem('cart')));
+            for (let productInStore = 0; productInStore < Products.length; productInStore++) {
+                if (Products[productInStore].serialNum == serialNumProdInCart) {
+                    // console.log(`serialNumProdInCart: ${serialNumProdInCart}, Products[productInStore].serialNum: ${Products[productInStore].serialNum}`);
+                    for (let productsInCart = 0; productsInCart < Cart.length; productsInCart++) {
+                        if (Cart[productsInCart].serialNum == serialNumProdInCart) {
+                            Products[productInStore].amount = Number(prodInCartValue);
+                            Cart[productsInCart].amount = Number(prodInCartValue);
+                            if (prodInCartValue == 0) {
+                                Cart.splice(productsInCart, 1);
+                                localStorage.setItem('products', JSON.stringify(Products));
+                                localStorage.setItem('cart', JSON.stringify(Cart));
+                                _showAllCart();
+                                _calTotal();
+                            }
+                            else {
+                                localStorage.setItem('products', JSON.stringify(Products));
+                                localStorage.setItem('cart', JSON.stringify(Cart));
+                                _calTotal();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>

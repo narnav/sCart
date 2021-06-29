@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Shophop | Products</title>
+
+    <!-- Bootstrap style -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <!-- Animate -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <!-- My CSS -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+</head>
+
+<body>
+
+    <!-- container to show products -->
+    <div class="container-fluid">
+        <div id="prodDisplay" class="row animate__animated animate__backInLeft">
+        </div>
+    </div>
+
+    <!-- Bootstrap Script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+
+    <!-- My Scripts -->
+    <script>
+
+        // the products arrary
+        let Products = (JSON.parse(localStorage.getItem('products')));
+
+        // the cart arrary
+        let Cart = (JSON.parse(localStorage.getItem('cart')));
+
+        // function to show all products, also sort by link
+        function _showAllProduct() {
+            let Products = (JSON.parse(localStorage.getItem('products')));
+
+            // get the parmetars from link
+            const queryString = window.location.search;
+            const parmaters = new URLSearchParams(queryString);
+            const catClicked = parmaters.get("type");
+
+            if (catClicked == null) {
+                prodDisplay.innerHTML = `<h1>All products</h1>`;
+                for (let i = 0; i < Products.length; i++) {
+                    prodDisplay.innerHTML += `
+            <div class="col-sm-3">
+                <div class="prod_cart">
+                    <img src=${Products[i].prodImg} class="img-fluid">
+                    <p><span class="prod_details">Name: </span>${Products[i].prodName}</p>
+                    <p><span class="prod_details">Price: </span>${Products[i].prodPrice}₪</p>
+                    <p><span class="prod_details">Amount: </span> <input onchange="_updateCart(Products[${i}], this)" type="number" id="amount" name="amount" min="0" value="${Products[i].amount}"></p>
+                </div>
+            </div>
+            `;
+                }
+            }
+
+            else {
+                prodDisplay.innerHTML = `<h1>All ${catClicked}</h1>`;
+                for (let i = 0; i < Products.length; i++) {
+                    if (Products[i].prodCat == catClicked) {
+                        prodDisplay.innerHTML += `
+                        <div class="col-sm-3">
+                            <div class="prod_cart">
+                                <img src=${Products[i].prodImg} class="img-fluid">
+                                <p><span class="prod_details">Name: </span>${Products[i].prodName}</p>
+                                <p><span class="prod_details">Price: </span>${Products[i].prodPrice}₪</p>
+                                <p><span class="prod_details">Amount: </span> <input onchange="_updateCart(Products[${i}], this)" type="number" id="amount" name="amount" min="0" value="${Products[i].amount}"></p>
+                            </div>
+                        </div>
+                        `;
+                    }
+                }
+            }
+        }
+
+        window.addEventListener("storage", _showAllProduct);
+        _showAllProduct();
+
+        function _updateRealValueFromStoreToStorage(Card, amountToBuy) {
+            let Products = (JSON.parse(localStorage.getItem('products')));
+            for (let productInStore = 0; productInStore < Products.length; productInStore++) {
+                if (Products[productInStore].serialNum == Card.serialNum) {
+                    Products[productInStore].amount = Number(amountToBuy.value);
+                }
+            }
+            localStorage.setItem('products', JSON.stringify(Products));
+        }
+
+        // update change in products to cart
+        function _updateCart(Card, amountToBuy) {
+            _updateRealValueFromStoreToStorage(Card, amountToBuy);
+            // console.log(Card)
+            // debugger
+            let Cart = (JSON.parse(localStorage.getItem('cart')));
+
+            // var to check if prod in cart
+            let prodExists = false;
+            if (amountToBuy.value != 0) {
+                for (let i = 0; i < Cart.length; i++) {
+                    if (Card.serialNum == Cart[i].serialNum) {
+                        Cart[i].amount = Number(amountToBuy.value);
+                        prodExists = true;
+                        localStorage.setItem('cart', JSON.stringify(Cart));
+                    }
+                }
+            }
+
+            else if (amountToBuy.value == 0) {
+                for (let i = 0; i < Cart.length; i++) {
+                    if (Card.serialNum == Cart[i].serialNum) {
+                        Cart.splice(i, 1);
+                        localStorage.setItem('cart', JSON.stringify(Cart));
+                    }
+                }
+            }
+
+            if (prodExists == false) {
+                if (amountToBuy.value != 0) {
+                    Cart.push(Card);
+                    Cart[Cart.length - 1].amount = Number(amountToBuy.value);
+                    localStorage.setItem('cart', JSON.stringify(Cart));
+                }
+            }
+
+            // console.log(Cart)
+        }
+
+
+
+    </script>
+
+
+</body>
+
+</html>
