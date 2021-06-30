@@ -179,9 +179,9 @@ var products = [
   },
 ];
 lsProducts = localStorage.getItem("products");
-// if (JSON.parse(lsProducts) != products && JSON.parse(lsProducts) != null) {
-//   products = JSON.parse(lsProducts);
-// }
+if (JSON.parse(lsProducts) != products && JSON.parse(lsProducts) != null) {
+  products = JSON.parse(lsProducts);
+}
 console.log(products);
 localStorage.setItem("products", JSON.stringify(products));
 localStorage.setItem("categories", JSON.stringify(categories));
