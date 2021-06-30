@@ -1,0 +1,173 @@
+{
+    "products":[
+    {
+      "id": 1,
+      "name": "toilet paper",
+      "catId": 1,
+      "description": "Its just toilet paper man",
+      "picture": "productImgs/supplies/toiletPaper.jpg",
+      "price": 10
+    },
+    {
+      "id": 2,
+      "name": "Apple",
+      "catId": 4,
+      "description": "nice apple",
+      "picture": "productImgs/fruits/Apple.jpg",
+      "price": 2
+    },
+    {
+      "id": 3,
+      "name": "Coke 0.5L Glass",
+      "catId": 3,
+      "description": "small glass coke bottle",
+      "picture": "productImgs/drinks/Coke-glass.png",
+      "price": 3
+    },
+    {
+      "id": 4,
+      "name": "Coke can",
+      "catId": 3,
+      "description": "Coke in a can",
+      "picture": "productImgs/drinks/coke-can.png",
+      "price": 3
+    },
+    {
+      "id": 5,
+      "name": "fanta can",
+      "catId": 3,
+      "description": "fanta in a can",
+      "picture": "productImgs/drinks/fanta-can.jpg",
+      "price": 3
+    },
+    {
+      "id": 6,
+      "name": "Fuze tea 0.5L",
+      "catId": 3,
+      "description": "small bottle of fuze tea, contains 0.5L",
+      "picture": "productImgs/drinks/fuzetea-0.5.png",
+      "price": 3
+    },
+    {
+      "id": 7,
+      "name": "Sprite 0.5L",
+      "catId": 3,
+      "description": "small bottle of sprite, contains 0.5L",
+      "picture": "productImgs/drinks/sprite-0.5L.jpg",
+      "price": 3
+    },
+    {
+      "id": 8,
+      "name": "Banana",
+      "catId": 4,
+      "description": "It's a banana, it tastes good tho",
+      "picture": "productImgs/fruits/banana.jpg",
+      "price": 1
+    },
+    {
+      "id": 9,
+      "name": "Watermelon",
+      "catId": 4,
+      "description": "Fresh watermelon, tastes good, good for the summer!",
+      "picture": "productImgs/fruits/watermelon.jpg",
+      "price": 3
+    },
+    {
+      "id": 10,
+      "name": "Kiwi",
+      "catId": 4,
+      "description": "its green and weird",
+      "picture": "productImgs/fruits/Kiwi.jpg",
+      "price": 1
+    },
+    {
+      "id": 11,
+      "name": "strawberry",
+      "catId": 4,
+      "description": "best fruit if u ask me, after watermelon",
+      "picture": "productImgs/fruits/strawberry.jpg",
+      "price": 0.5
+    },
+    {
+      "id": 12,
+      "name": "broom",
+      "catId": 1,
+      "description": "this is what u use to clean a house, no water!",
+      "picture": "productImgs/supplies/broom.jpg",
+      "price": 5
+    },
+    {
+      "id": 13,
+      "name": "clorox",
+      "catId": 1,
+      "description": "it's bleach or - אקונומיקה",
+      "picture": "productImgs/supplies/chlorox.jpg",
+      "price": 4
+    },
+    {
+      "id": 14,
+      "name": "Maxima",
+      "catId": 1,
+      "description": "this is avkat kvisa maxima",
+      "picture": "productImgs/supplies/maksima.jpg",
+      "price": 5
+    },
+    {
+      "id": 15,
+      "name": "ariel",
+      "catId": 1,
+      "description":
+        "this is avkat kvisa ariel, cheaper than sano maxima, im not biased",
+      "picture": "productImgs/supplies/ariel.jpg",
+      "price": 4
+    },
+    {
+      "id": 16,
+      "name": "Tomato",
+      "catId": 2,
+      "description":
+        "fresh tomatoes coming every day from the phillipines *Price is per kg*",
+      "picture": "productImgs/vegeteables/Tomato.jpg",
+      "price": 4
+    },
+    {
+      "id": 17,
+      "name": "cucumber",
+      "catId": 2,
+      "description": "Just a cucumber *Price is per kg*",
+      "picture": "productImgs/vegeteables/cucumber.jpg",
+      "price": 3
+    },
+    {
+      "id": 19,
+      "name": "lettuce",
+      "catId": 2,
+      "description": "its green, its edible take some *Price is per kg*",
+      "picture": "productImgs/vegeteables/lettuce.jpg",
+      "price": 4
+    },
+    {
+      "id": 20,
+      "name": "yellow onions",
+      "catId": 2,
+      "description": "fresh onions from my backyard *Price is per kg*",
+      "picture": "productImgs/vegeteables/yellow-onion.jpg",
+      "price": 5
+    },
+    {
+      "id": 21,
+      "name": "red onions",
+      "catId": 2,
+      "description": "fresh onions from my backyard *Price is per kg*",
+      "picture": "productImgs/vegeteables/red-onion.jpg",
+      "price": 4
+    },
+    {
+      "id": 22,
+      "name": "green onions",
+      "catId": 2,
+      "description": "fresh onions from my backyard *Price is per kg*",
+      "picture": "productImgs/vegeteables/green-onion.jpg",
+      "price": 3
+    }
+  ]}
