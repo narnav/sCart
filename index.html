@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="CSS/main.css" />
+  <link rel="stylesheet" href="CSS/body.css" />
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous"> -->
+  <script>
+    // const categories = JSON.parse(localStorage.getItem("categories"));
+    // const products = JSON.parse(localStorage.getItem("products"));
+  </script>
+  <script src="JS/shopcart.js"></script>
+  <title>ebay for nerds</title>
+</head>
+
+<body onload="loadStorage()">
+  <header>
+    <img src="svg/shopping-cart.svg" style="position: absolute; right: 10px" />
+    <!-- header (logo + home button) -->
+    <h1 style="color: lightblue; position: relative; top: 15px; left: 20px">
+      Maor's Shop
+    </h1>
+  </header>
+  <!-- main (products) -->
+  <div id="main" class="prods">
+    <iframe id="prodIframe" src="main.html"></iframe>
+  </div>
+  <!-- right (shopping cart) -->
+  <div class="shopcart">
+    <div id="shopList"></div>
+  </div>
+  </div>
+  <!-- left (categories) -->
+  <div id="cats">
+    <div id="cat_List" class="leftnav"></div>
+  </div>
+  <!-- footer (credits and extra info) -->
+  <footer>
+    <div>
+      <p class="ftrinfo">
+        Icons made by
+        <a href="https://www.freepik.com" title="Freepik" style="color: bisque;">Freepik</a> from
+        <a href="https://www.flaticon.com/" title="Flaticon" style="color: bisque;">www.flaticon.com</a>
+        <!-- <button onclick="cartCheck()">test</button> -->
+        <br>
+        <a href="adminPage.html">Admin Page</a><br>
+        <!-- <button onclick="localStorage.clear();window.location.reload()">Clear Storage</button> -->
+        <!-- &nbsp; <input onchange="console.log(this.value)"> -->
+      </p>
+
+    </div>
+  </footer>
+  <script src="JS\sort.js">
+  </script>
+</body>
+
+</html>
