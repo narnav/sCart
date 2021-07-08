@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>OOJS</title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index-sitecss.css">
+    <script src="myscript.js"></script>
+
+</head>
+<body onload="menu('dessert'), displayframe('mydesserts')">
+
+    <div class="top">
+        <h1>  welcome to our store</h1>
+      
+    </div>
+
+
+<div class= "wrapper">
+
+    
+    <div class="left">  <!-- left side of page-->
+      <h1 >categories</h1><br><br><br>
+      <h2 onclick="">desserts</h2><br><br>
+
+        <h2 onclick="" >dairy</h2><br><br>
+        <h2 onclick="">fast food</h2>
+
+    </div><!-- end of left side-->
+
+    
+
+    <div id="middle" class="middle"><!-- middle side of page-->
+
+        <table class="table">
+            <tr>
+                <td class="td"><div id="row1"></div><br>
+                    <button class="add" value="1" id="roww1" onclick="AddToCart(this.value)">add</button> &nbsp&nbsp&nbsp
+                     <input type="text" style="width: 22px" value="100" readonly id="price1">  
+                               <button class="remove"  onclick="remove('1')">remove</button> </td>
+                
+    
+                <td class="td"  ><div id="row2"></div><br>
+                    <button class="add" value="2" id="roww2" onclick="AddToCart(this.value)">add</button> &nbsp&nbsp&nbsp
+                        <input type="text" style="width: 22px" value="100" readonly id="price2">   
+                                  <button class="remove"  onclick="remove('2')">remove</button> </td>
+                
+        
+                <td class="td"  ><div id="row3"></div><br>
+                    <button class="add" value="3" id="roww3" onclick="AddToCart(this.value)">add</button> &nbsp&nbsp&nbsp
+                        <input type="text" style="width: 22px" value="100" readonly id="price3">    
+                                <button class=  "remove"  onclick="remove('3')">remove</button> </td>
+                    
+               </tr>
+               <br><br>
+              <tr>
+                <td class="td"  ><div id="row4"></div><br>
+                    <button class="add" value="4" id="roww4" onclick="AddToCart(this.value)">add</button> &nbsp&nbsp&nbsp
+                      <input type="text" style="width: 22px" value="100" readonly id="price4">  
+                                  <button class="remove" onclick="remove('4')">remove</button> </td>
+    
+    
+                <td class="td"  ><div id="row5" ></div><br>
+                        <button class="add" value="5" id="roww5" onclick="AddToCart(this.value)">add</button>  &nbsp&nbsp&nbsp
+                         <input type="text" style="width: 22px" value="100" readonly id="price5">     
+                              <button class="remove" onclick="remove('5')">remove</button> </td>
+    
+    
+                <td class="td"  ><div id="row6"></div ><br>
+                            <button class="add" value="6" id="roww6" onclick="AddToCart(this.value)">add</button> &nbsp&nbsp&nbsp
+                               <input type="text" style="width: 22px" value="100" readonly id="price6">  
+                                           <button class="remove" onclick="remove('6')">remove</button> </td>
+              </tr>
+              <br><br>
+    
+              <tr>
+                <td class="td"  ><div id="row7"></div ><br>
+                    <button class="add" value="7" id="roww7" onclick="AddToCart(this.value)">add</button>  &nbsp&nbsp&nbsp
+                      <input type="text" style="width: 22px" value="100" readonly id="price7">   
+                               <button class="remove" onclick="remove('7')">remove</button> </td>
+    
+    
+                <td class="td"  ><div id="row8"></div><br>
+                        <button class="add" value="8" id="roww8" onclick="AddToCart(this.value)">add</button> &nbsp&nbsp&nbsp
+                         <input type="text" style="width: 22px" value="100" readonly id="price8"> 
+                                      <button class="remove" onclick="remove('8')">remove</button> </td>
+    
+    
+                <td  class="td"  ><div id="row9"></div><br>     
+                        <button class="add" value="9" id="roww9" onclick="AddToCart(this.value)">add</button>  &nbsp&nbsp&nbsp
+                         <input type="text" style="width: 22px" value="100" readonly id="price9">     
+                                  <button class="remove" onclick="remove('9')">remove</button> </td>
+              </tr>
+        </table>
+
+        
+       
+
+        
+
+     
+    </div><!-- end of middle-->
+
+
+     
+    <div id="cart" class="right">      <!-- right  side of page which cart will appear-->
+
+          <h1 style="color: rgb(253, 251, 251);">your cart</h1>
+          
+          <div><h2>total:<input type="text" value="0" id="total"></h2><button class="remove" >checkout</button> </div><br>
+
+          <div id="obj1"></div>
+          <div id="obj2"></div>
+          <div id="obj3"></div>
+          <div id="obj3"></div>
+          <div id="obj4"></div>
+          <div id="obj5"></div>
+          <div id="obj6"></div>
+          <div id="obj7"></div>
+          <div id="obj8"></div>
+          <div id="obj9"></div>
+
+
+
+
+        
+       
+    </div><!-- end of  right-->
+</div><!-- end of wrapper-->
+
+
+
+
+
+
+</body>
+</html>

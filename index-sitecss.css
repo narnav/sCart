@@ -1,0 +1,144 @@
+
+.top {
+    display: flex;
+    height: 100px; 
+    background-color: rgb(0, 140, 255);
+    border: 2px solid yellow;
+  }
+  .top h1{
+      color: rgb(230, 230, 230);
+      margin:auto;
+    vertical-align:middle;
+
+  }
+  .left h1{
+    color: rgb(230, 230, 230);
+    margin-left:20px;
+    vertical-align:middle;
+
+
+
+}
+.left h2{
+    color: rgb(238, 174, 0);
+    margin-left:20px;
+    vertical-align:middle;
+
+    cursor: pointer;
+
+
+}
+.right h1{
+    color: rgb(230, 23  0, 230);
+    margin-left:20px;
+    vertical-align:middle;
+
+}
+
+  .wrapper{
+    display: flex;
+    height: 100%; 
+    width: 100%;
+    background-color: rgb(11, 68, 6);
+
+}
+.left{
+
+    width: 100px;
+    height: 1000px;
+    flex: 0.5;
+    border: 2px solid yellow;
+    background-color: brown;
+}
+.middle{
+
+    width: 600px;
+    height: 1000px;
+    flex: 2.5   ;
+    border: 2px solid yellow;
+}
+.right{
+
+    width: 100px;
+    height: 1000px;
+    flex: 0.5;
+    border: 2px solid yellow;
+    background-color: rgb(140, 42, 165);
+}
+.inright{
+    width:80px;
+    height: 80px;
+    background-color: rgb(240, 240, 240);
+    margin-top: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+
+
+
+
+
+
+}
+.table{
+
+    background-color: rgb(242, 247, 0);
+    height: 100%; 
+    width: 100%;
+    margin-top: 0%;
+    
+}.td{
+
+    height: 300px; 
+    width: 300px;
+    background-color: rgb(0, 0, 0);
+    
+}
+
+.remove{
+    color: aliceblue;
+
+    background-color: rgb(214, 0, 43);
+    margin-left: 20px;
+
+}
+.remove2{
+    color: aliceblue;
+    background-color: rgb(214, 0, 43);
+    margin-left: 60px;
+}
+
+.add{
+    color: aliceblue;
+    margin-left:70px ;
+
+    background-color: rgb(0, 46, 131);
+}
+/* 
+.iframe{
+    
+    border-color:#eee9e9 ;
+    border-width:4px;
+    height: 99%;
+    width:99%;
+    margin:0.5%;
+
+  
+} */
+.catbutton{
+
+    background-color: chocolate;
+}
+
+.row{
+
+    width:"200px";
+     height:"200px";
+     color: rgb(212, 0, 255);
+    background-color: rgb(223, 0, 0);
+    margin: 50px;
+    
+}
+.img{
+
+    width:400px;
+}
