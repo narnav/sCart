@@ -19,7 +19,7 @@
 
 </head>
 
-<body class="index_body" id="body">
+<body class="index_body" id="body" onload="_FirstUpdateOfMemoryFromStorage()">
 
     <!-- CONTAINER -->
     <div class="container-fluid">
@@ -80,7 +80,8 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-info" data-bs-dismiss="modal">I want to buy more</button>
+                    <button type="button" class="btn btn-outline-info" data-bs-dismiss="modal">I want to buy
+                        more</button>
                     <button type="button" class="btn btn-info">I took all I want</button>
                 </div>
             </div>
@@ -93,6 +94,21 @@
         crossorigin="anonymous"></script>
 
     <!-- My Scripts -->
+    <script>
+        function _FirstUpdateOfMemoryFromStorage() {
+            // debugger
+            // alert('hi')
+            if ((localStorage.getItem('products') === null) && (localStorage.getItem('cart') === null)) {
+                loadMyStore.src = "js/products.js";
+                loadMyCart.src = "js/cart.js";
+            }
+        }
+    </script>
+
+    <script id="loadMyStore"></script>
+    <script id="loadMyCart"></script>
+
+    <!-- // ------------- -->
     <script>
         // the products arrary
         let Products = (JSON.parse(localStorage.getItem('products')));
