@@ -1,12 +1,44 @@
 {
   "Users": [
     {
-      "userName": "Admin admin",
-      "Password": "p1234567",
+      "userName": "admin",
+      "Password": "admin",
+      "id": 1
+    },
+    {
+      "userName": "bob",
+      "Password": "1234",
+      "id": 2
+    },
+    {
+      "userName": "dora",
+      "Password": "1234",
+      "id": 3
+    },
+    {
+      "userName": "ben",
+      "Password": "1234",
+      "id": 4
+    },
+    {
+      "userName": "daniel",
+      "Password": "1234",
+      "id": 5
+    },
+    {
+      "userName": "popp",
+      "Password": "1234",
+      "id": 6
+    }
+  ],
+  "conctedAccuont": [
+    {
+      "userName": "popp",
+      "Password": "1234",
+      "userID": 6,
       "id": 1
     }
   ],
-  "conctedAccuont": [],
   "cart": [
     {
       "name": "MLP2",

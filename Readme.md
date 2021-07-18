@@ -26,11 +26,3 @@ total_pages: 500
 total_results: 10000
 used :40
 }
-</script>
-
-# admin info
-
-"userName": "Admin admin",
-"Password": "p1234567",
-
-# have fun ;)
