@@ -1,3 +1,4 @@
+import Cart from "./Cart.js";
 //DOm
 let cart_items = [];
 const cartdisplay = document.getElementById("cartContainer");
@@ -262,24 +263,8 @@ function handeleclick(event) {
   let selecteditem = event.target.id;
   if (selecteditem != "cartContainer") {
     selecteditem = cart_items.filter((item) => item.id == event.target.id);
-    addtocartarray(selecteditem[0]);
+    Cart.addtocartarray(selecteditem, chossen_items);
   }
-}
-
-function addtocartarray(selecteditem) {
-  if (chossen_items.includes(selecteditem) === true) {
-    let i = chossen_items.indexOf(selecteditem);
-    updatequan(i);
-  } else {
-    chossen_items.push(selecteditem);
-  }
-  updatecartdispaly();
-}
-
-function updatequan(index) {
-  let quan = chossen_items[index].quan;
-  quan++;
-  chossen_items[index].quan = quan;
 }
 
 function updatecartdispaly() {
