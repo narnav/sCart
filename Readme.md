@@ -1,6 +1,5 @@
-Todo list:
-Make categories (as an array) v
-Make prods (as an array) v
-make function to display cat v
-make function to display prod v
-make array with shopping cart v
+# ShoppingCartProj
+First Vanilla Javascript project
+Shopping cart that works with local storage.
+
+In case any of the images don't load please try to clear your localstorage.
